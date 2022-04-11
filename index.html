@@ -10,8 +10,22 @@
     </head>
 
     <body>
-        <img src="images/pingpong.jpg" alt="ping pong paddle">
+        <span id="container">
+            <img src="images/pingpong.jpg" alt="ping pong paddle">
+            <h4 id="title">Ping Pong Score Keeper</h4>
 
+            <h1 id="scoreDisplayed">0 to 0</h1>
+            <p id="directions">Use the buttons below to keep score</p>
+
+            <p id="limit">
+            <h4>Playing To</h4><input type="number" name="number" id="number">
+            </p>
+
+            <button id="player1">+1 Player One</button>
+            <button id="player2">+1 Player Two</button>
+            <button id="reset">RESET</button>
+
+        </span>
 
         <script src="app.js"></script>
     </body>
