@@ -7,9 +7,14 @@ const player2 = document.querySelector("#player2");
 const resetBtn = document.querySelector("#reset");
 
 player1.addEventListener("click", (e) => {
-  player1Count++;
-  score.innerText = `${player1Count}` + " " + "to" + " " + `${player2Count}`;
-  if (player1Count === parseInt(number.value)) {
+  let winningScore = parseInt(number.value);
+  if (player1Count !== winningScore) {
+    player1Count++;
+    score.innerText = `${player1Count}` + " " + "to" + " " + `${player2Count}`;
+  }
+
+  if (player1Count === winningScore) {
+    score.innerText = `${player1Count}` + " " + "to" + " " + `${player2Count}`;
     setTimeout(() => {
       alert("Player 1 wins!");
       reset();
@@ -18,9 +23,14 @@ player1.addEventListener("click", (e) => {
 });
 
 player2.addEventListener("click", (e) => {
-  player2Count++;
-  score.innerText = `${player1Count}` + " " + "to" + " " + `${player2Count}`;
-  if (player2Count === parseInt(number.value)) {
+  let winningScore = parseInt(number.value);
+  if (player2Count !== winningScore) {
+    player2Count++;
+    score.innerText = `${player1Count}` + " " + "to" + " " + `${player2Count}`;
+  }
+
+  if (player2Count === winningScore) {
+    score.innerText = `${player1Count}` + " " + "to" + " " + `${player2Count}`;
     setTimeout(() => {
       alert("Player 2 wins!");
       reset();
