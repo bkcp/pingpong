@@ -1,49 +1,60 @@
-const score = document.querySelector("#scoreDisplayed");
+const p1Score = document.querySelector("#p1Score");
+const p2Score = document.querySelector("#p2Score");
 let player1Count = 0;
 let player2Count = 0;
 const number = document.querySelector("#number");
 const player1 = document.querySelector("#player1");
 const player2 = document.querySelector("#player2");
 const resetBtn = document.querySelector("#reset");
+let isGameOver = false;
+
+number.addEventListener("change", (e) => {
+  console.log(number.value);
+  reset();
+});
 
 player1.addEventListener("click", (e) => {
   let winningScore = parseInt(number.value);
-  if (player1Count !== winningScore) {
+  if (!isGameOver) {
     player1Count++;
-    score.innerText = `${player1Count}` + " " + "to" + " " + `${player2Count}`;
-  }
-
-  if (player1Count === winningScore) {
-    score.innerText = `${player1Count}` + " " + "to" + " " + `${player2Count}`;
-    setTimeout(() => {
-      alert("Player 1 wins!");
-      reset();
-    }, 200);
+    if (player1Count === winningScore) {
+      p1Score.classList.add("has-text-success");
+      p2Score.classList.add("has-text-danger");
+      isGameOver = true;
+      player1.disabled = true;
+      player2.disabled = true;
+    }
+    p1Score.textContent = player1Count;
   }
 });
 
 player2.addEventListener("click", (e) => {
   let winningScore = parseInt(number.value);
-  if (player2Count !== winningScore) {
+  if (!isGameOver) {
     player2Count++;
-    score.innerText = `${player1Count}` + " " + "to" + " " + `${player2Count}`;
-  }
-
-  if (player2Count === winningScore) {
-    score.innerText = `${player1Count}` + " " + "to" + " " + `${player2Count}`;
-    setTimeout(() => {
-      alert("Player 2 wins!");
-      reset();
-    }, 200);
+    if (player2Count === winningScore) {
+      p2Score.classList.add("has-text-success");
+      p1Score.classList.add("has-text-danger");
+      isGameOver = true;
+      player1.disabled = true;
+      player2.disabled = true;
+    }
+    p2Score.textContent = player2Count;
   }
 });
+
 resetBtn.addEventListener("click", (e) => {
   reset();
 });
 
 function reset() {
+  isGameOver = false;
   player1Count = 0;
   player2Count = 0;
-  number.value = "";
-  score.innerText = `${player1Count}` + " " + "to" + " " + `${player2Count}`;
+  player1.disabled = false;
+  player2.disabled = false;
+  p1Score.classList.remove("has-text-success", "has-text-danger");
+  p2Score.classList.remove("has-text-success", "has-text-danger");
+  p1Score.textContent = "0";
+  p2Score.textContent = "0";
 }

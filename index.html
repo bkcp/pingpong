@@ -6,27 +6,54 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
         <title>Document</title>
+
     </head>
 
     <body>
-        <span id="container">
-            <img src="images/pingpong.jpg" alt="ping pong paddle">
-            <h4 id="title">Ping Pong Score Keeper</h4>
 
-            <h1 id="scoreDisplayed">0 to 0</h1>
-            <p id="directions">Use the buttons below to keep score</p>
+        <section class="section">
+            <div class="columns">
+                <div class="column is-half is-offset-one-quarter ">
 
-            <p id="limit">
-            <h4>Playing To</h4><input type="number" name="number" id="number" min="1" max="10">
-            </p>
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                <img src="images/pingpong.jpg" alt="ping pong paddle">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="content">
+                                <h5 id="title">Ping Pong Score Keeper</h5>
 
-            <button id="player1">+1 Player One</button>
-            <button id="player2">+1 Player Two</button>
-            <button id="reset">RESET</button>
+                                <h1 class="title is-size-1" id="scoreDisplayed"> <span id="p1Score">0</span> to <span
+                                        id="p2Score">0</span></h1>
+                                <p class="subtitle" id="directions">Use the buttons below to keep score</p>
 
-        </span>
+                                <p class='column' id="limit">
+                                    <label for="number">Playing To</label>
+                                    <input type="number" name="number" id="number" min="1" max="10">
+                                </p>
+                                <div class="card-footer">
+                                    <button class="card-footer-item is-one-third button has-background-primary "
+                                        id="player1">+1
+                                        Player
+                                        One</button>
+                                    <button class='card-footer-item button has-background-info ' id="player2">+1 Player
+                                        Two</button>
+                                    <button class='card-footer-item button has-background-danger'
+                                        id="reset">RESET</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
+                </div>
+
+
+            </div>
+        </section>
         <script src="app.js"></script>
     </body>
 
